@@ -51,3 +51,73 @@ h1 {
  button:hover {
   background-color: #007bff;
  }
+
+ #infoForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+#infoForm label {
+  font-weight: bold;
+}
+
+#infoForm input, #infoForm button {
+  padding: 5px;
+  font-size: 16px;
+}
+
+#infoForm button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.survey-container {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.survey-container h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.survey-container p {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.survey-container input[type="radio"], .survey-container input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.survey-container textarea {
+  width: 100%;
+  padding: 5px;
+  font-size: 16px;
+}
+
+#resultBox {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+#resultBox h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+#resultBox p {
+  font-size: 18px;
+  margin-bottom: 5px;
+}

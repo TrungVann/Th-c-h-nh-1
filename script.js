@@ -1,50 +1,50 @@
 const surveyQuestions = [
   {
-      section: "Phần 1",
-      questions: Array.from({ length: 10 }, (_, i) => ({
-          type: "trueOrFalse",
-          question: `Câu hỏi 1.${i + 1}`,
-          options: [
-              { label: "Đúng", value: "true" },
-              { label: "Sai", value: "false" }
-          ]
-      }))
+       section: "Phần 1: Kiến thức cơ bản",
+       questions: Array.from({ length: 10 }, (_, i) => ({
+           type: "trueOrFalse",
+           question: `Câu hỏi 1: Bạn có thể đi bộ không?`,
+           options: [
+               { label: "Có", value: "true" },
+               { label: "Không", value: "false" }
+           ]
+       }))
   },
   {
-      section: "Phần 2",
-      questions: Array.from({ length: 10 }, (_, i) => ({
-          type: "singleChoice",
-          question: `Câu hỏi 2.${i + 1}`,
-          options: [
-              { label: "Đáp án 1", value: "option1" },
-              { label: "Đáp án 2", value: "option2" },
-              { label: "Đáp án 3", value: "option3" },
-              { label: "Đáp án 4", value: "option4" }
-          ]
-      }))
+       section: "Phần 2: Lựa chọn đơn",
+       questions: Array.from({ length: 10 }, (_, i) => ({
+           type: "singleChoice",
+           question: `Câu hỏi 2: Bạn thích đồ ăn gì nhất?`,
+           options: [
+               { label: "Pizza", value: "option1" },
+               { label: "Sushi", value: "option2" },
+               { label: "Bánh mì", value: "option3" },
+               { label: "Không thích ăn", value: "option4" }
+           ]
+       }))
   },
   {
-      section: "Phần 3",
-      questions: Array.from({ length: 10 }, (_, i) => ({
-          type: "multipleChoice",
-          question: `Câu hỏi 3.${i + 1}`,
-          options: [
-              { label: "Đáp án 1", value: "option1" },
-              { label: "Đáp án 2", value: "option2" },
-              { label: "Đáp án 3", value: "option3" },
-              { label: "Đáp án 4", value: "option4" }
-          ]
-      }))
+       section: "Phần 3: Lựa chọn nhiều",
+       questions: Array.from({ length: 10 }, (_, i) => ({
+           type: "multipleChoice",
+           question: `Câu hỏi 3: Bạn thích thể thao gì?`,
+           options: [
+               { label: "Bóng đá", value: "option1" },
+               { label: "Bơi lội", value: "option2" },
+               { label: "Chạy bộ", value: "option3" },
+               { label: "Yoga", value: "option4" }
+           ]
+       }))
   },
   {
-      section: "Phần 4",
-      questions: Array.from({ length: 10 }, (_, i) => ({
-          type: "openAnswer",
-          question: `Câu hỏi 4.${i + 1}`,
-          options: []
-      }))
+       section: "Phần 4: Câu trả lời mở",
+       questions: Array.from({ length: 10 }, (_, i) => ({
+           type: "openAnswer",
+           question: `Câu hỏi 4: Bạn muốn trở thành gì khi lớn lên?`,
+           options: []
+       }))
   }
-];
+ ];
 
 function displaySurveyQuestions() {
   const surveyContainer = document.querySelector('.survey-container');
@@ -52,14 +52,14 @@ function displaySurveyQuestions() {
       const sectionElement = document.createElement('div');
       sectionElement.classList.add('section');
 
-      const sectionTitle = document.createElement('h2');
+      const sectionTitle = document.createElement('h1');
       sectionTitle.textContent = section.section;
       sectionElement.appendChild(sectionTitle);
 
       section.questions.forEach(question => {
           const questionElement = document.createElement('p');
           questionElement.textContent = question.question;
-          questionElement.classList.add('question'); // Thêm class 'question' cho mỗi câu hỏi
+          questionElement.classList.add('question'); 
           sectionElement.appendChild(questionElement);
 
           if (question.type === "trueOrFalse" || question.type === "singleChoice") {
@@ -76,7 +76,7 @@ function displaySurveyQuestions() {
 
                   sectionElement.appendChild(radioInput);
                   sectionElement.appendChild(label);
-                  sectionElement.appendChild(document.createElement('br')); // Thêm dòng mới sau mỗi lựa chọn
+                  sectionElement.appendChild(document.createElement('br')); 
               });
           } else if (question.type === "multipleChoice") {
               question.options.forEach(option => {
@@ -92,7 +92,7 @@ function displaySurveyQuestions() {
 
                   sectionElement.appendChild(checkboxInput);
                   sectionElement.appendChild(label);
-                  sectionElement.appendChild(document.createElement('br')); // Thêm dòng mới sau mỗi lựa chọn
+                  sectionElement.appendChild(document.createElement('br')); 
               });
           } else if (question.type === "openAnswer") {
               const textarea = document.createElement('textarea');
@@ -102,34 +102,28 @@ function displaySurveyQuestions() {
               sectionElement.appendChild(textarea);
           }
       });
-
-      // Thêm thanh chia cắt sau mỗi phần câu hỏi
-      const hr = document.createElement('hr');
-      sectionElement.appendChild(hr);
-
       surveyContainer.appendChild(sectionElement);
   });
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Hiển thị hộp thoại
+
   document.getElementById('resultBox').classList.add('hidden');
   document.getElementById('dialog').classList.remove('hidden');
 
-  // Xử lý form
+
   document.getElementById('infoForm').addEventListener('submit', function(event) {
       event.preventDefault();
-      // Lấy thông tin từ form
+
       const name = document.getElementById('name').value;
       const dob = document.getElementById('dob').value;
       const idCard = document.getElementById('idCard').value;
       const address = document.getElementById('address').value;
 
-      // Ẩn hộp thoại và hiển thị bộ đề khảo sát
+
       document.getElementById('dialog').classList.add('hidden');
       document.getElementById('survey').classList.remove('hidden');
 
-      // Hiển thị câu hỏi khảo sát
       displaySurveyQuestions();
   });
 });
@@ -174,5 +168,5 @@ document.getElementById('submitSurvey').addEventListener('click', function() {
   let result = `Thông tin tiểu sử:<br>- Họ và tên: ${name}<br>- Ngày tháng năm sinh: ${dob}<br>- Căn cước công dân: ${idCard}<br>- Địa chỉ thường trú: ${address}<br><br>Các lựa chọn đáp án:<br>`;
 
 
-  resultText.innerHTML = result; // Sử dụng innerHTML để hiển thị các thẻ HTML
+  resultText.innerHTML = result;
 });
