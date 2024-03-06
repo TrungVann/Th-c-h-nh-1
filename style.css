@@ -121,3 +121,12 @@ h1 {
   font-size: 18px;
   margin-bottom: 5px;
 }
+
+.survey-container {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  max-height: 400px; /* Đặt giới hạn chiều cao tối đa */
+  overflow-y: auto; /* Cho phép cuộn theo chiều dọc */
+}
