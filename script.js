@@ -138,7 +138,7 @@ document.getElementById('submitSurvey').addEventListener('click', function() {
   const idCard = document.getElementById('idCard').value;
   const address = document.getElementById('address').value;
 
-  let result = `Thông tin tiểu sử:<br>- Họ và tên: ${name}<br>- Ngày tháng năm sinh: ${dob}<br>- Căn cước công dân: ${idCard}<br>- Địa chỉ thường trú: ${address}<br>`;
+  let result = `Họ và tên: ${name}<br> DOB: ${dob}<br> CCCD: ${idCard}<br> Địa chỉ: ${address}<br>`;
 
 
   resultText.innerHTML = result;
