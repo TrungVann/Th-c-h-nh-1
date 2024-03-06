@@ -98,7 +98,7 @@ function displaySurveyQuestions() {
               const textarea = document.createElement('textarea');
               textarea.name = question.question;
               textarea.rows = "5";
-              textarea.cols = "110";
+              textarea.cols = "60";
               sectionElement.appendChild(textarea);
           }
       });
@@ -128,33 +128,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-function getSurveyAnswers() {
-  let answers = [];
-  surveyQuestions.forEach(section => {
-      section.questions.forEach(question => {
-          if (question.type === "trueOrFalse" || question.type === "singleChoice") {
-              const selectedOption = document.querySelector(`input[name="${question.question}"]:checked`);
-              if (selectedOption) {
-                  const label = question.options.find(option => option.value === selectedOption.value).label;
-                  answers.push({ question: question.question, answer: label });
-              }
-          } else if (question.type === "multipleChoice") {
-              const selectedOptions = document.querySelectorAll(`input[name="${question.question}"]:checked`);
-              selectedOptions.forEach(option => {
-                  const label = question.options.find(opt => opt.value === option.value).label;
-                  answers.push({ question: question.question, answer: label });
-              });
-          } else if (question.type === "openAnswer") {
-              const textarea = document.querySelector(`textarea[name="${question.question}"]`);
-              if (textarea && textarea.value.trim() !== '') {
-                  answers.push({ question: question.question, answer: textarea.value });
-              }
-          }
-      });
-  });
-  return answers;
-}
-
 document.getElementById('submitSurvey').addEventListener('click', function() {
   document.getElementById('survey').classList.add('hidden');
   document.getElementById('resultBox').classList.remove('hidden');
@@ -165,7 +138,7 @@ document.getElementById('submitSurvey').addEventListener('click', function() {
   const idCard = document.getElementById('idCard').value;
   const address = document.getElementById('address').value;
 
-  let result = `Thông tin tiểu sử:<br>- Họ và tên: ${name}<br>- Ngày tháng năm sinh: ${dob}<br>- Căn cước công dân: ${idCard}<br>- Địa chỉ thường trú: ${address}<br><br>Các lựa chọn đáp án:<br>`;
+  let result = `Thông tin tiểu sử:<br>- Họ và tên: ${name}<br>- Ngày tháng năm sinh: ${dob}<br>- Căn cước công dân: ${idCard}<br>- Địa chỉ thường trú: ${address}<br>`;
 
 
   resultText.innerHTML = result;
